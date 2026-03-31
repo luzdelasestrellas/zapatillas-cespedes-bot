@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zapatillas Céspedes — Calzado con alma</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --marble-base:   #e8e6e1;
+    --marble-mid:    #d4d0c8;
+    --marble-dark:   #b8b2a7;
+    --gold:          #c9a84c;
+    --gold-light:    #e8c96a;
+    --gold-pale:     #f5e9c4;
+    --gold-dark:     #8a6a1f;
+    --charcoal:      #1e1e1e;
+    --charcoal-mid:  #2d2d2d;
+    --charcoal-soft: #3a3a3a;
+    --text-dark:     #1a1a1a;
+    --text-mid:      #5a5a5a;
+    --text-light:    #8a8a8a;
+    --surface:       rgba(232,230,225,0.96);
+    --surface-dark:  rgba(30,30,30,0.95);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  /* ── MARBLE TEXTURE BACKGROUND ───────────────────────────────────── */
+  body {
+    background-color: #e8e4dd;
+    background-image:
+      /* Gold veins — diagonal sweeping lines */
+      repeating-linear-gradient(
+        127deg,
+        transparent 0px,
+        transparent 28px,
+        rgba(201,168,76,0.07) 28px,
+        rgba(201,168,76,0.07) 29px,
+        transparent 29px,
+        transparent 58px,
+        rgba(201,168,76,0.12) 58px,
+        rgba(201,168,76,0.12) 59px
+      ),
+      repeating-linear-gradient(
+        43deg,
+        transparent 0px,
+        transparent 44px,
+        rgba(201,168,76,0.05) 44px,
+        rgba(201,168,76,0.05) 45px,
+        transparent 45px,
+        transparent 90px,
+        rgba(232,201,106,0.09) 90px,
+        rgba(232,201,106,0.09) 91px
+      ),
+      /* Marble grey tonal variation */
+      repeating-linear-gradient(
+        170deg,
+        transparent 0px,
+        transparent 18px,
+        rgba(180,175,165,0.06) 18px,
+        rgba(180,175,165,0.06) 22px,
+        transparent 22px,
+        transparent 50px
+      ),
+      repeating-linear-gradient(
+        10deg,
+        transparent 0px,
+        transparent 30px,
+        rgba(150,145,138,0.04) 30px,
+        rgba(150,145,138,0.04) 34px,
+        transparent 34px,
+        transparent 80px
+      ),
+      /* Base marble gradient */
+      radial-gradient(ellipse 120% 80% at 20% 30%, #eeebe4 0%, #ddd9d0 40%, #ccc8be 100%),
+      radial-gradient(ellipse 80% 120% at 80% 70%, #e2dfd8 0%, #d8d4ca 50%, #c8c4ba 100%);
+    color: var(--text-dark);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Fine grain noise over everything */
+  body::before {
+    content:'';
+    position:fixed; inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events:none; z-index:0;
+  }
+
+  /* ── NAV (Claude.ai inspired) ─────────────────────────────────────── */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:200;
+    height: 60px;
+    padding: 0 2.5rem;
+    display: flex; justify-content:space-between; align-items:center;
+    background: rgba(232,228,221,0.85);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  .logo-mark {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  .logo span { color: var(--gold-dark); font-style: italic; }
+
+  nav ul { list-style:none; display:flex; gap:0.25rem; align-items:center; }
+
+  nav a {
+    color: var(--text-mid);
+    text-decoration:none;
+    font-size:0.83rem;
+    font-weight:500;
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    transition: all 0.15s;
+  }
+
+  nav a:hover {
+    color: var(--text-dark);
+    background: rgba(0,0,0,0.05);
+  }
+
+  .nav-cta {
+    background: var(--charcoal) !important;
+    color: #fff !important;
+    padding: 0.5rem 1.1rem !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    margin-left: 0.5rem;
+    transition: all 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--charcoal-soft) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+  }
+
+  /* ── HERO ─────────────────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    padding-top: 60px;
+  }
+
+  .hero-left {
+    padding: 6rem 4rem 5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold-dark);
+    font-size: 0.72rem; font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 2rem; width: fit-content;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .hero-left h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 5vw, 5.5rem);
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-left h1 em {
+    font-style: italic;
+    color: var(--gold-dark);
+    position: relative;
+  }
+
+  .hero-left h1 em::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  }
+
+  .hero-left p {
+    color: var(--text-mid);
+    font-size: 1rem; font-weight: 300; line-height: 1.75;
+    max-width: 400px; margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex; gap: 0.75rem; align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--charcoal);
+    color: #fff;
+    padding: 0.8rem 1.8rem;
+    border: none; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+
+  .btn-primary:hover {
+    background: var(--charcoal-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.6);
+    color: var(--text-dark);
+    padding: 0.8rem 1.8rem;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.85);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+
+  .hero-right {
+    padding: 5rem 4rem;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1;
+  }
+
+  /* ── CHAT WINDOW (Claude.ai style) ───────────────────────────────── */
+  .chat-window {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.04),
+      0 8px 32px rgba(0,0,0,0.08),
+      0 32px 64px rgba(0,0,0,0.06);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .chat-header {
+    padding: 1rem 1.2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    background: rgba(255,255,255,0.5);
+  }
+
+  .chat-avatar {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .chat-name {
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  .chat-status {
+    font-size: 0.7rem; color: #3d9b6e;
+    display: flex; align-items: center; gap: 0.3rem;
+    font-weight: 500;
+  }
+
+  .chat-status::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #3d9b6e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.5; transform:scale(0.8); }
+  }
+
+  .chat-body {
+    padding: 1.2rem;
+    display: flex; flex-direction: column; gap: 0.8rem;
+    min-height: 240px;
+    background: rgba(248,247,245,0.5);
+  }
+
+  .msg {
+    max-width: 82%; padding: 0.7rem 1rem;
+    font-size: 0.86rem; line-height: 1.55;
+    opacity: 0; animation: fadeUp 0.4s ease forwards;
+    font-weight: 400; border-radius: 12px;
+  }
+
+  .msg-user {
+    background: var(--charcoal);
+    color: #fff;
+    align-self: flex-end;
+    border-radius: 14px 14px 4px 14px;
+  }
+
+  .msg-bot {
+    background: rgba(255,255,255,0.92);
+    color: var(--text-dark);
+    align-self: flex-start;
+    border-radius: 14px 14px 14px 4px;
+    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(10px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .msg:nth-child(1) { animation-delay:0.5s; }
+  .msg:nth-child(2) { animation-delay:1.6s; }
+  .msg:nth-child(3) { animation-delay:2.9s; }
+  .msg:nth-child(4) { animation-delay:4.1s; }
+
+  .chat-footer {
+    padding: 0.85rem 1rem;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    display: flex; gap: 0.6rem; align-items: center;
+    background: rgba(255,255,255,0.7);
+  }
+
+  .chat-input-wrap {
+    flex: 1;
+    background: rgba(240,239,236,0.8);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center;
+    padding: 0.5rem 0.9rem;
+    gap: 0.5rem;
+  }
+
+  .chat-input-wrap input {
+    flex: 1;
+    background: transparent; border: none; outline: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem; color: var(--text-dark);
+    font-weight: 400;
+  }
+
+  .chat-input-wrap input::placeholder { color: var(--text-light); }
+
+  .send-btn {
+    background: var(--charcoal);
+    border: none; border-radius: 8px;
+    width: 32px; height: 32px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: #fff; font-size: 0.85rem;
+    transition: background 0.15s, transform 0.15s;
+  }
+
+  .send-btn:hover { background: var(--charcoal-soft); transform: scale(1.05); }
+
+  /* ── TICKER BAND ──────────────────────────────────────────────────── */
+  .ticker {
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0.85rem 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ticker-track {
+    display: flex; gap: 3rem;
+    animation: ticker 24s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .ticker-item {
+    display: flex; align-items: center; gap: 0.6rem;
+    white-space: nowrap;
+    font-size: 0.75rem; font-weight: 600;
+    color: var(--text-mid); letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .ticker-diamond {
+    width: 5px; height: 5px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ── STATS ────────────────────────────────────────────────────────── */
+  .stats {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    position: relative; z-index: 1;
+  }
+
+  .stat {
+    padding: 3rem 2rem;
+    border-right: 1px solid rgba(201,168,76,0.15);
+    text-align: center;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .stat:hover { background: rgba(255,255,255,0.3); }
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1; margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+
+  /* ── SECTIONS SHARED ─────────────────────────────────────────────── */
+  .section-eyebrow {
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .eyebrow-line {
+    width: 28px; height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  }
+
+  .eyebrow-text {
+    font-size: 0.7rem; font-weight: 700;
+    color: var(--gold-dark); letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 3.5vw, 4rem);
+    font-weight: 700; line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold-dark); }
+
+  .section-sub {
+    color: var(--text-mid); font-size: 0.98rem;
+    font-weight: 300; line-height: 1.75;
+    max-width: 480px; margin-bottom: 3.5rem;
+  }
+
+  /* ── FEATURES ─────────────────────────────────────────────────────── */
+  .features {
+    padding: 8rem 5rem;
+    position: relative; z-index: 1;
+  }
+
+  .features-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1.25rem;
+  }
+
+  .feat-card {
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-bottom: 2px solid transparent;
+    padding: 2rem;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .feat-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.25s;
+    border-radius: inherit;
+  }
+
+  .feat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    border-bottom-color: var(--gold);
+    background: rgba(255,255,255,0.75);
+  }
+
+  .feat-card:hover::before { opacity: 1; }
+
+  .feat-icon {
+    font-size: 1.6rem; margin-bottom: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px;
+    background: rgba(201,168,76,0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .feat-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--charcoal); margin-bottom: 0.6rem;
+  }
+
+  .feat-card p {
+    font-size: 0.86rem; color: var(--text-mid);
+    line-height: 1.65; font-weight: 300;
+  }
+
+  /* ── HOW ─────────────────────────────────────────────────────────── */
+  .how {
+    padding: 8rem 5rem;
+    background: rgba(30,30,30,0.92);
+    backdrop-filter: blur(20px);
+    position: relative; overflow: hidden; z-index: 1;
+  }
+
+  /* Subtle gold veins on dark section */
+  .how::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(
+        127deg,
+        transparent 0px, transparent 50px,
+        rgba(201,168,76,0.04) 50px, rgba(201,168,76,0.04) 51px,
+        transparent 51px, transparent 110px,
+        rgba(201,168,76,0.07) 110px, rgba(201,168,76,0.07) 111px
+      );
+    pointer-events: none;
+  }
+
+  .how .section-title { color: #f0ede6; }
+  .how .section-sub { color: rgba(240,237,230,0.45); }
+  .how .eyebrow-text { color: var(--gold-light); }
+  .how .eyebrow-line { background: linear-gradient(90deg, var(--gold-light) 0%, transparent 100%); }
+
+  .steps-row {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 1.25rem;
+    margin-top: 4rem;
+  }
+
+  .step {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 2rem 1.75rem;
+    border-radius: 14px;
+    position: relative;
+    transition: all 0.25s;
+  }
+
+  .step:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(201,168,76,0.35);
+    transform: translateY(-4px);
+  }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 700;
+    color: rgba(201,168,76,0.15);
+    line-height: 1; margin-bottom: 1rem;
+  }
+
+  .step-tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold-light);
+    font-size: 0.65rem; font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(201,168,76,0.25);
+  }
+
+  .step h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; font-weight: 700;
+    color: #f0ede6; margin-bottom: 0.6rem;
+  }
+
+  .step p {
+    font-size: 0.84rem; color: rgba(240,237,230,0.4);
+    line-height: 1.65; font-weight: 300;
+  }
+
+  /* ── PRICING ─────────────────────────────────────────────────────── */
+  .pricing {
+    padding: 8rem 5rem;
+    position: relative; z-index: 1;
+  }
+
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1.25rem; align-items: start;
+  }
+
+  .price-card {
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.8);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    position: relative;
+    transition: all 0.25s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+  }
+
+  .price-card.featured {
+    background: var(--charcoal);
+    border: 1px solid rgba(201,168,76,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 0 0 1px rgba(201,168,76,0.15);
+    transform: translateY(-8px);
+  }
+
+  .price-card.featured:hover { transform: translateY(-12px); }
+
+  .feat-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: #fff;
+    font-size: 0.65rem; font-weight: 700;
+    padding: 0.3rem 0.9rem; border-radius: 100px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(201,168,76,0.4);
+  }
+
+  .price-name {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 1.2rem;
+  }
+
+  .price-card.featured .price-name { color: rgba(255,255,255,0.45); }
+
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 700;
+    color: var(--charcoal); line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+
+  .price-card.featured .price-amount { color: #fff; }
+  .price-card.featured .price-amount span { color: var(--gold-light); }
+
+  .price-period { font-size: 0.85rem; color: var(--text-light); font-weight: 300; }
+  .price-card.featured .price-period { color: rgba(255,255,255,0.35); }
+
+  .price-setup { font-size: 0.78rem; color: var(--text-light); margin-bottom: 1.8rem; font-weight: 300; }
+  .price-card.featured .price-setup { color: rgba(255,255,255,0.3); }
+
+  .price-divider {
+    height: 1px; background: rgba(0,0,0,0.07);
+    margin: 1.5rem 0;
+  }
+  .price-card.featured .price-divider { background: rgba(255,255,255,0.1); }
+
+  .price-card ul {
+    list-style: none; display: flex;
+    flex-direction: column; gap: 0.65rem;
+    margin-bottom: 2rem;
+  }
+
+  .price-card li {
+    font-size: 0.86rem; color: var(--text-mid);
+    display: flex; align-items: center; gap: 0.6rem;
+    font-weight: 300;
+  }
+
+  .price-card.featured li { color: rgba(255,255,255,0.65); }
+
+  .price-card li::before {
+    content: '✓';
+    width: 18px; height: 18px;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold-dark);
+    font-weight: 700; font-size: 0.72rem;
+    border-radius: 5px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .price-card.featured li::before {
+    background: rgba(201,168,76,0.2);
+    color: var(--gold-light);
+  }
+
+  .btn-dark-card {
+    background: var(--charcoal);
+    color: #fff; width: 100%; padding: 0.85rem;
+    border: none; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    display: block; text-align: center;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+  .btn-dark-card:hover { background: var(--charcoal-soft); transform: translateY(-1px); }
+
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: #fff; width: 100%; padding: 0.85rem;
+    border: none; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    display: block; text-align: center;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+
+  .btn-outline-card {
+    background: transparent; color: var(--charcoal);
+    width: 100%; padding: 0.85rem;
+    border: 1px solid rgba(0,0,0,0.15); border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    display: block; text-align: center;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+  .btn-outline-card:hover { background: rgba(0,0,0,0.05); transform: translateY(-1px); }
+
+  /* ── CTA BAND ─────────────────────────────────────────────────────── */
+  .cta-band {
+    margin: 0 3rem 4rem;
+    background: var(--charcoal);
+    border-radius: 20px;
+    padding: 4rem;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 4rem; align-items: center;
+    position: relative; overflow: hidden; z-index: 1;
+    box-shadow: 0 16px 64px rgba(0,0,0,0.2);
+  }
+
+  .cta-band::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(
+        127deg,
+        transparent 0px, transparent 40px,
+        rgba(201,168,76,0.06) 40px, rgba(201,168,76,0.06) 41px
+      );
+    pointer-events: none;
+  }
+
+  .cta-band h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 700; color: #f0ede6;
+    line-height: 1.1; letter-spacing: -0.02em;
+    position: relative; z-index: 1;
+  }
+
+  .cta-band h2 em { font-style: italic; color: var(--gold-light); }
+  .cta-band p { color: rgba(240,237,230,0.5); margin-top: 0.75rem; font-weight: 300; position: relative; z-index: 1; }
+
+  .btn-cta {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: #fff;
+    padding: 1rem 2.5rem; border: none; border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    white-space: nowrap; letter-spacing: 0.02em;
+    transition: all 0.2s;
+    display: inline-block;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+    position: relative; z-index: 1;
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 36px rgba(201,168,76,0.45);
+  }
+
+  /* ── CONTACT ─────────────────────────────────────────────────────── */
+  .contact {
+    padding: 6rem 5rem 8rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    position: relative; z-index: 1;
+  }
+
+  .contact-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--charcoal); margin-bottom: 1rem;
+  }
+
+  .contact-info h2 em { font-style: italic; color: var(--gold-dark); }
+
+  .contact-info > p {
+    color: var(--text-mid); font-size: 0.95rem;
+    line-height: 1.75; font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-detail {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .contact-detail:last-child { border: none; }
+
+  .cd-icon {
+    width: 38px; height: 38px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+
+  .cd-label { font-size: 0.68rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+  .cd-value { font-size: 0.9rem; color: var(--charcoal); font-weight: 400; }
+
+  /* Form (Claude-style) */
+  .form-card {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  .form { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-group label {
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--text-mid); letter-spacing: 0.05em;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: rgba(240,239,236,0.7);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px; padding: 0.8rem 1rem;
+    color: var(--text-dark); font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    font-weight: 400;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+    background: rgba(255,255,255,0.9);
+  }
+
+  .form-group textarea { min-height: 100px; resize: vertical; }
+
+  .btn-submit {
+    background: var(--charcoal);
+    color: #fff; padding: 0.9rem;
+    border: none; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; width: 100%;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-submit:hover { background: var(--charcoal-soft); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+
+  /* ── FOOTER ──────────────────────────────────────────────────────── */
+  footer {
+    background: rgba(30,30,30,0.96);
+    padding: 2rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    position: relative; z-index: 1;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: #f0ede6; display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  .footer-logo span { color: var(--gold-light); font-style: italic; }
+
+  footer p { font-size: 0.78rem; color: rgba(255,255,255,0.3); font-weight: 300; }
+
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a {
+    color: rgba(255,255,255,0.3); text-decoration: none;
+    font-size: 0.78rem; transition: color 0.15s;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+  /* ── ANIMATIONS ──────────────────────────────────────────────────── */
+  .fade-up {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ──────────────────────────────────────────────────── */
+  @media(max-width:900px){
+    nav { padding: 0 1.5rem; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 6rem 2rem 3rem; }
+    .hero-right { padding: 2rem 2rem 4rem; }
+    .stats { grid-template-columns: repeat(2,1fr); }
+    .features, .how, .pricing, .contact { padding: 5rem 2rem; }
+    .features-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .steps-row { grid-template-columns: 1fr 1fr; }
+    .contact { grid-template-columns: 1fr; gap: 3rem; }
+    .cta-band { margin: 0 1.5rem 3rem; grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .price-card.featured { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-mark">👟</div>
+    Zapatillas <span>Céspedes</span>
+  </div>
+  <ul>
+    <li><a href="#features">Funciones</a></li>
+    <li><a href="#how">Proceso</a></li>
+    <li><a href="#pricing">Precios</a></li>
+    <li><a href="#contact" class="nav-cta">Empezar →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Asistente IA · Lima, Perú</div>
+    <h1>Tu tienda<br>atiende<br><em>sola.</em></h1>
+    <p>Bot de inteligencia artificial que responde a tus clientes 24 horas al día. Modelos, precios, tallas y stock — sin que tú muevas un dedo.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Quiero una demo →</a>
+      <a href="#how" class="btn-secondary">Cómo funciona</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="chat-window">
+      <div class="chat-header">
+        <div class="chat-avatar">👟</div>
+        <div>
+          <div class="chat-name">Zapatillas Céspedes</div>
+          <div class="chat-status">En línea ahora</div>
+        </div>
+      </div>
+      <div class="chat-body">
+        <div class="msg msg-user">¿Tienen Nike talla 42 para hombre?</div>
+        <div class="msg msg-bot">¡Hola! Sí tenemos Nike Air Max 90 en talla 42 a S/350 y Nike Revolution 7 a S/219. ¿Le interesa alguno? 😊</div>
+        <div class="msg msg-user">¿Hay algo más económico?</div>
+        <div class="msg msg-bot">Claro, la opción más accesible para hombre es la R18 Urbana desde S/139.90. Muy buena calidad para el precio.</div>
+      </div>
+      <div class="chat-footer">
+        <div class="chat-input-wrap">
+          <input type="text" placeholder="Escribe tu consulta..." readonly>
+        </div>
+        <button class="send-btn">↑</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="ticker-diamond"></span> Nike</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Adidas</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Puma</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Skechers</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Reebok</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Converse</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Vans</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> New Balance</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> R18</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Nike</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Adidas</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Puma</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Skechers</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Reebok</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Converse</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> Vans</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> New Balance</div>
+    <div class="ticker-item"><span class="ticker-diamond"></span> R18</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat fade-up">
+    <div class="stat-num">24/7</div>
+    <div class="stat-label">Disponibilidad</div>
+  </div>
+  <div class="stat fade-up">
+    <div class="stat-num">&lt;2s</div>
+    <div class="stat-label">Respuesta</div>
+  </div>
+  <div class="stat fade-up">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Personalizable</div>
+  </div>
+  <div class="stat fade-up">
+    <div class="stat-num">∞</div>
+    <div class="stat-label">Consultas</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-eyebrow">
+    <div class="eyebrow-line"></div>
+    <div class="eyebrow-text">Funciones</div>
+  </div>
+  <h2 class="section-title fade-up">Todo lo que tu tienda<br><em>necesita.</em></h2>
+  <p class="section-sub fade-up">Un asistente completo que conoce tu catálogo y atiende a tus clientes mejor que cualquier vendedor.</p>
+
+  <div class="features-grid">
+    <div class="feat-card fade-up">
+      <div class="feat-icon">🧠</div>
+      <h3>Conoce tu catálogo</h3>
+      <p>Cargamos todos tus productos, precios, tallas y colores. El bot responde con información exacta de tu tienda, sin inventar nada.</p>
+    </div>
+    <div class="feat-card fade-up">
+      <div class="feat-icon">⚡</div>
+      <h3>Respuesta instantánea</h3>
+      <p>Menos de 2 segundos por respuesta. Tus clientes nunca esperan, incluso a las 3 de la madrugada o en feriados.</p>
+    </div>
+    <div class="feat-card fade-up">
+      <div class="feat-icon">📱</div>
+      <h3>Web y WhatsApp</h3>
+      <p>Funciona en tu página web y se integra a tu WhatsApp Business para atender donde están tus clientes.</p>
+    </div>
+    <div class="feat-card fade-up">
+      <div class="feat-icon">🔄</div>
+      <h3>Fácil de actualizar</h3>
+      <p>¿Llegó nuevo stock? ¿Cambiaron los precios? Actualizamos el catálogo del bot en menos de 30 minutos.</p>
+    </div>
+    <div class="feat-card fade-up">
+      <div class="feat-icon">📊</div>
+      <h3>Panel de consultas</h3>
+      <p>Ve qué preguntan tus clientes, qué productos buscan más y cuántas consultas resolvió el bot cada semana.</p>
+    </div>
+    <div class="feat-card fade-up">
+      <div class="feat-icon">🎯</div>
+      <h3>Tu marca, tu tono</h3>
+      <p>El bot tiene el nombre y la personalidad de tu tienda. Tus clientes sienten que hablan directamente contigo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
+  <div style="text-align:center;">
+    <div class="section-eyebrow" style="justify-content:center;">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">Proceso</div>
+      <div class="eyebrow-line" style="background:linear-gradient(270deg,var(--gold-light) 0%,transparent 100%)"></div>
+    </div>
+    <h2 class="section-title fade-up" style="margin:0 auto 1rem;">Listo en <em>48 horas.</em></h2>
+    <p class="section-sub fade-up" style="margin:0 auto;">Sin complicaciones. Nosotros hacemos todo el trabajo técnico.</p>
+  </div>
+
+  <div class="steps-row">
+    <div class="step fade-up">
+      <div class="step-tag">Paso 1</div>
+      <div class="step-num">01</div>
+      <h4>Nos envías tu catálogo</h4>
+      <p>Tu lista de productos en Excel, PDF o el link de tu tienda online. Como tengas la información.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-tag">Paso 2</div>
+      <div class="step-num">02</div>
+      <h4>Configuramos el bot</h4>
+      <p>Cargamos todos tus productos y personalizamos el asistente con el nombre y tono de tu marca.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-tag">Paso 3</div>
+      <div class="step-num">03</div>
+      <h4>Lo probamos juntos</h4>
+      <p>Te mostramos el bot funcionando y hacemos los ajustes que necesites antes de publicarlo.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-tag">Paso 4</div>
+      <div class="step-num">04</div>
+      <h4>Va en vivo</h4>
+      <p>Tu bot empieza a atender clientes 24/7 desde tu web o WhatsApp. Tú no haces nada más.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div style="text-align:center;">
+    <div class="section-eyebrow" style="justify-content:center;">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">Precios</div>
+      <div class="eyebrow-line" style="background:linear-gradient(270deg,var(--gold) 0%,transparent 100%)"></div>
+    </div>
+    <h2 class="section-title fade-up" style="margin:0 auto 0.5rem;">Simple y <em>transparente.</em></h2>
+    <p class="section-sub fade-up" style="margin:0 auto 3.5rem;">Sin contratos largos. Sin costos ocultos. Cancela cuando quieras.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="price-card fade-up">
+      <div class="price-name">Básico</div>
+      <div class="price-amount">S/150</div>
+      <div class="price-period">/mes</div>
+      <div class="price-setup">+ S/300 configuración inicial</div>
+      <div class="price-divider"></div>
+      <ul>
+        <li>Hasta 200 productos</li>
+        <li>Bot en tu web</li>
+        <li>Soporte por email</li>
+        <li>Actualizaciones mensuales</li>
+      </ul>
+      <a href="#contact" class="btn-outline-card">Empezar</a>
+    </div>
+
+    <div class="price-card featured fade-up">
+      <div class="feat-badge">✦ Más popular</div>
+      <div class="price-name">Profesional</div>
+      <div class="price-amount">S/250</div>
+      <div class="price-period">/mes</div>
+      <div class="price-setup">+ S/500 configuración inicial</div>
+      <div class="price-divider"></div>
+      <ul>
+        <li>Productos ilimitados</li>
+        <li>Web + WhatsApp</li>
+        <li>Panel de estadísticas</li>
+        <li>Soporte prioritario</li>
+        <li>Actualizaciones semanales</li>
+      </ul>
+      <a href="#contact" class="btn-gold">Empezar ahora</a>
+    </div>
+
+    <div class="price-card fade-up">
+      <div class="price-name">Enterprise</div>
+      <div class="price-amount">S/500</div>
+      <div class="price-period">/mes</div>
+      <div class="price-setup">Setup personalizado</div>
+      <div class="price-divider"></div>
+      <ul>
+        <li>Multi-tienda</li>
+        <li>API personalizada</li>
+        <li>Integración con tu sistema</li>
+        <li>Soporte 24/7</li>
+        <li>SLA garantizado</li>
+      </ul>
+      <a href="#contact" class="btn-dark-card">Contactar</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <h2>¿Listo para que tu tienda<br>trabaje <em>sola?</em></h2>
+    <p>Demo gratis. Sin compromiso. Resultados en 48 horas.</p>
+  </div>
+  <a href="#contact" class="btn-cta">Quiero mi demo →</a>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">Contacto</div>
+    </div>
+    <h2 class="fade-up">Cuéntanos sobre<br>tu <em>tienda.</em></h2>
+    <p class="fade-up">Te mostramos el bot funcionando con tus propios productos en menos de 24 horas. Sin costo, sin compromiso.</p>
+    <div>
+      <div class="contact-detail">
+        <div class="cd-icon">📧</div>
+        <div>
+          <div class="cd-label">Email</div>
+          <div class="cd-value">hola@zapatillascespedes.pe</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="cd-icon">📱</div>
+        <div>
+          <div class="cd-label">WhatsApp</div>
+          <div class="cd-value">+51 999 999 999</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="cd-icon">📍</div>
+        <div>
+          <div class="cd-label">Ubicación</div>
+          <div class="cd-value">Lima, Perú</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card fade-up">
+    <form class="form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre de tu tienda</label>
+          <input type="text" placeholder="Ej: Zapatillas Lima" required>
+        </div>
+        <div class="form-group">
+          <label>Tu nombre</label>
+          <input type="text" placeholder="Ej: Juan García" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>WhatsApp o email</label>
+        <input type="text" placeholder="+51 999 999 999" required>
+      </div>
+      <div class="form-group">
+        <label>¿Cuántos productos tiene tu tienda?</label>
+        <select>
+          <option>Menos de 50</option>
+          <option>50 - 200</option>
+          <option>200 - 500</option>
+          <option>Más de 500</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensaje (opcional)</label>
+        <textarea placeholder="Cuéntanos sobre tu tienda y lo que necesitas..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Solicitar demo gratuita →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    Zapatillas <span>Céspedes</span>
+  </div>
+  <p>© 2026 · Lima, Perú · Todos los derechos reservados</p>
+  <div class="footer-links">
+    <a href="#features">Funciones</a>
+    <a href="#pricing">Precios</a>
+    <a href="#contact">Contacto</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = '✓ Mensaje enviado — te contactamos pronto';
+    btn.style.background = 'linear-gradient(135deg, #3d9b6e 0%, #2d7a55 100%)';
+    btn.disabled = true;
+  }
+
+  // Chat animation loop
+  const msgs = document.querySelectorAll('.msg');
+  function resetChat() {
+    msgs.forEach((m, i) => {
+      m.style.opacity = '0';
+      m.style.transform = 'translateY(10px)';
+      m.style.animation = 'none';
+      void m.offsetWidth; // reflow
+      m.style.animation = `fadeUp 0.4s ease ${[0.5, 1.6, 2.9, 4.1][i]}s forwards`;
+    });
+  }
+  resetChat();
+  setInterval(resetChat, 7000);
+</script>
+</body>
+</html>
